@@ -11,10 +11,34 @@ def factorial(n):
 def fib(n):
     if n <= 2:
         return 1
-    return fib(n-1) + fib(n-2)
+    return fib(n - 1) + fib(n - 2)
 
 
+array = [6, 4, 5, 2, 8, 1]
+
+
+# Example of an iterative function
+def multiply_arr(arr):
+    total = 1
+    for n in arr:
+        total *= n
+    return total
+
+
+# Recursive version
+def array_product(arr):
+    if not arr:
+        return 1
+    return arr[0] * array_product(arr[1:])
+
+
+print(array_product(array))
+print(multiply_arr(array))
 print(fib(10))
 print(factorial(1))
 
-# Classic examples of recursion problems
+# What to consider if determining complexity of recursive functions
+# the number of stack frames
+# the number of recursive calls
+# The other operations done inside the function
+# the space complexity (the max number of stack frames)
