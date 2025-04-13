@@ -9,8 +9,8 @@ user = {"first_name": "Jerome",
 print(user["middle_name"])
 
 user["date_of_birth"] = "2/6/1990"
-# adding and deleting new key-value pair is O(1) generally
 
+# adding and deleting new key-value pair is O(1) generally
 del user["date_of_birth"]
 user.pop("last_name")
 # two ways to delete
@@ -20,4 +20,4 @@ for k in user.keys():
 for _ in user.items():
     print(_)
 
-    # One downside is dictionaries require more memory 
+    # One downside is dictionaries require more memory
