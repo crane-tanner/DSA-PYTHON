@@ -47,7 +47,7 @@ def merge(left, right):
     return result
 
 
-my_list = [2, 4, 1, 6, 5, 3, 8, 7]
+my_list = [44, 32, 28, 9, 7, 62, 99, 39, 21, 17, 13]
 sorted_list = merge_sort(my_list)
 print("Original list: ", my_list)
 print("Sorted list: ", sorted_list)
