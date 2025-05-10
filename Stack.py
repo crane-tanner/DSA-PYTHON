@@ -21,7 +21,7 @@ class Node:
 class Stack:
     def __init__(self):
         self.top = None
-        self.size = 0
+        self.size =
         self.max_size = 100
 
     def __len__(self):
