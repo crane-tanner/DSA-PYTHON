@@ -27,7 +27,7 @@ class Queue:
         else:
             return None
 
-    def peak_head(self):
+    def peek_head(self):
         if self.size > 0:
             return self.head.data
         else:
@@ -49,11 +49,20 @@ class Queue:
             self.tail = None
         return former_head.data
 
+    def __len__(self):
+        return self.size
+
 
 my_queue = Queue()
 my_queue.enqueue(4)
 my_queue.enqueue(6)
 my_queue.enqueue(7)
-my_queue.dequeue()
-print("Front of queue: ", my_queue.peek_tail())
-print("Back of queue: ", my_queue.peak_head())
+my_queue.enqueue(9)
+my_queue.enqueue(10)
+
+# while my_queue.size > 0:
+# my_queue.dequeue()
+
+print("Front of queue:", my_queue.peek_head())
+print("Back of queue:", my_queue.peek_tail())
+print("Length of queue:", my_queue.__len__())
