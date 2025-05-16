@@ -63,11 +63,44 @@ class BinarySearchTree:
                 current = parent.right
         if not current:
             raise Exception("node not found")
-        elif not current.left and not current.right:
+        if not current.left and not current.right:
             return self._remove_node_no_children(current, parent)
-        elif current.right and current.left:
+        if current.right and current.left:
             return self._remove_node_two_children(current)
-        return self._remove_node_one_child(current,parent)
+        return self._remove_node_one_child(current, parent)
+
+    def _remove_node_no_children(self, current, parent):
+        if current is self.root:
+            self.root = None
+            return self
+        if parent.left == current:
+            parent.left = None
+        else:
+            parent.right = None
+        return self
+
+    def _remove_node_one_child(self, current, parent):
+        if current is self.root:
+            self.root = current if current.right else current.left
+            return self
+        if parent.right == current:
+            parent.right = current.right if current.right else current.left
+        else:
+            parent.left = current.right if current.right else current.left
+        return self
+
+    def _remove_node_two_children(self, current):
+        successor = self._get_successor(current)
+        current.data = successor.data
+        return self.remove(successor, start=current.right, parent=current)
+
+    @staticmethod   # grouping related functionality within a class without tying it to the class's state.
+    def _get_successor(current):
+        successor = current.right
+        while successor and successor.left:
+            successor = current.left
+        return successor
+
 
 
 new_tree = BinarySearchTree()
@@ -75,5 +108,6 @@ new_tree.insert(4)
 new_tree.insert(2)
 new_tree.insert(3)
 new_tree.insert(7)
+new_tree.remove(3)
 print(new_tree)
-print(new_tree.contains(6))
+print(new_tree.contains(3))
