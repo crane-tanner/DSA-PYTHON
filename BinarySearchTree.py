@@ -102,7 +102,6 @@ class BinarySearchTree:
         return successor
 
 
-
 new_tree = BinarySearchTree()
 new_tree.insert(4)
 new_tree.insert(2)
