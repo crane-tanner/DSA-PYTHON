@@ -10,5 +10,11 @@ def insertion_sort(array):
 
 
 new_list = [97, 101, 89, 99, 76, 65, 41, 30, 94]
-insertion_sort(new_list)
-print(new_list)
+print("Before:", new_list)
+print("After:", insertion_sort(new_list))
+
+"""
+Insertion sort best for smaller datasets or arrays 
+Time complexity - Best: O(n), Average: O(n^2), Worst: O(n^2)
+Space complexity - O(1) 
+"""
