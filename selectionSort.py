@@ -1,7 +1,7 @@
 def selection_sort(array):
     for idx in range(len(array)):
         smallest = idx
-        for idx2 in range(idx+1, len(array)):
+        for idx2 in range(1, len(array)):
             if array[idx2] < array[smallest]:
                 smallest = idx2
         array[idx], array[smallest] = array[smallest], array[idx]
@@ -9,7 +9,6 @@ def selection_sort(array):
 
 new_arr = [8, 2, 7, 1, 5]
 print(selection_sort(new_arr))
-
 
 """
 Inefficient for large arrays
