@@ -1,5 +1,3 @@
-from collections import deque
-
 
 class Node:
     def __init__(self, data):
@@ -11,26 +9,21 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    def breadth_first_traversal(self):
+    def dft_preorder_iterative(self):
         if not self.root:
             raise Exception('Empty tree')
-        queue = deque()
-        queue.append(self.root)
+        stack = [self.root]
         visited = []
-        while queue:
-            visited_node = queue.popleft()
+        while stack:
+            visited_node = stack.pop()
             visited.append(visited_node.data)
             if visited_node.left:
-                visited.append(visited_node.left)
+                stack.append(visited_node.left)
             if visited_node.right:
-                visited.append(visited_node.right)
+                stack.append(visited_node.right)
         return visited
 
-"""
-Breadth first traversal time complexity: O(n)
-Space complexity: O(n) 
-"""
-
+# Time & Space complexity both O(n)
 
 BST = BinarySearchTree()
-print(BST.breadth_first_traversal())
+print(BST.dft_preorder_iterative())
